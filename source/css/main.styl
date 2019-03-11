@@ -1,22 +1,3 @@
-.post-card{
-    margin-top: 2rem;
-    word-break: break-all;
-}
-
-.post-card i {
-  vertical-align: middle;
-}
-
-.post-index-img{
-    display:block; 
-    width: 100%;
-    height: 160px;
-    background-repeat: no-repeat;
-    background-size:cover;
-    border-radius: 6px;
-    box-shadow: 0 16px 38px -12px rgba(0,0,0,0.56), 0 4px 25px 0 rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
-}
-
 /*
  =========================================================
  * Material Kit
@@ -35,121 +16,126 @@
 :root{
   --GrColor: #56c2a4;
 }
+
 .navbar {
 	padding: 0;
-	background-color: #99999933 !important;
-	box-shadow: 0 0 0 0 !important;
+	background-color: transparent !important;
+	box-shadow: 0 0 0 0 ;
 }
-.main-raised {
-	box-shadow: 0 0 0 0 !important;
+.navbar:not(.navbar-transparent){
+    color: white;
 }
-.post-index-img {
-	box-shadow: 0 0 0 0 !important;
+.navbar:hover:not(.navbar-transparent) {
+    background-color: var(--GrColor) !important;
 }
-.post-card {
-    margin-top: 0;
-    padding: 20px 0;
-    border-radius: 6px;
+.navbar a {
+    font-size: 1.3em !important;
 }
-.post-card:hover {
-	box-shadow: 0px 0px 10px var(--GrColor);
-	transition: 0.3s;
+.navbar ion-icon {
+    font-size: 1.875rem;
 }
-.nav-link {
-	box-shadow: 0 0 0 0 !important;
+.navbar:not(.navbar-transparent) a:not(.navbar-brand):hover:after {
+    content: "";
+    width: 100%;
+    height: .3125rem;
+    position: absolute;
+    left: 0;
+    bottom: 0rem;
+    background-color: #ffffff;
 }
-.post_content h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
-    content: "" !important;
+.navbar .navbar-nav .nav-item .nav-link:not([rel]){
+    padding-top: 1.25rem; 
+    padding-bottom: 1.25rem; 
+}
+.navbar-brand {
+    top: -0.9375rem;
+}
+.navbar-brand ion-icon {
+    font-size: 3.75rem;
 }
 
-/* 代码高亮 */
-.prettyprint {
-    padding: 20px 0;
+
+// 主要布局
+.main-raised {
+	box-shadow: 0 0 0 0 ;
+}
+
+.nav-link {
+	box-shadow: 0 0 0 0 !important;
+    text-transform: capitalize !important;
 }
 
 /* banner image */
 .header-filter::before {
-    background: rgba(0,0,0,0.25) !important;
-}
-
-/* 图片 */
-.post_content img:hover {
-	filter: drop-shadow(0px 0px 3px var(--GrColor));
-}
-.post_content img {
-    cursor: pointer;
-    transition: .3s
-    border-radius: 6px;
-}
-
-.tocbot-active-link {
-  color: var(--GrColor) !important;
+    background: rgba(0,0,0,0.25) ;
 }
 
 /* 链接 */
 a {
-  color: var(--GrColor);
-  border-radius: 3px;
+    color: var(--GrColor);
+    border-radius: .1875rem;
 }
 a:hover:not(.navbar-brand),
-a:focus:not(.navbar-brand){
-  color: white;
-  text-decoration: none;
-  background-color: var(--GrColor);
+a:focus:not(.navbar-brand) {
+    color: #00bcd4;
+    text-decoration: none;
 }
+
+ion-icon {
+    vertical-align: middle;
+}
+
+.btn:focus, .btn:active, .btn:hover, .btn.btn-default:focus, .btn.btn-default:active, .btn.btn-default:hover{
+	box-shadow: 0 0 0 0 ;
+}
+
+/////////////////////////////////////////// index
+
+.index-card{
+    margin-top: 0rem;
+    word-break: break-all;
+}
+.index-card {
+    padding: 1.25rem 1rem;
+    border-radius: .375rem;
+}
+.index-card:hover {
+	box-shadow: 0rem 0rem 10rem var(--GrColor);
+	transition: 0.3s;
+}
+
+.index-post-img{
+    display:block; 
+    width: 100%;
+    height: 0;
+    padding-top: 33%;
+    background-position: center center;
+    background-size:cover;
+    border-radius: .375rem;
+    box-shadow: 0rem 0rem 0rem;
+}
+// 首页文章头图
+.post_index_image_container{
+  width: 100%;
+}
+
+
+
+//////////////////////////////////// archive
 
 /* archive categories */
 .nav-pills.nav-pills-rose .nav-item .nav-link.active, .nav-pills.nav-pills-rose .nav-item .nav-link.active:focus, .nav-pills.nav-pills-rose .nav-item .nav-link.active:hover {
     background-color: var(--GrColor);
 }
 .nav-pills .nav-item .nav-link {
-  font-size: 16px;
+  font-size: 1rem;
 }
-
-h6,
-.h6 {
-  font-size: 0.75rem;
-  text-transform: capitalize;
-  font-weight: 500;
-}
-.nav-pills .nav-item .nav-link, .nav-link, .badge, .btn {
-  text-transform: capitalize;
-}
-
-#tocbot>ol {
-  padding-left: 0;
-}
-
-// 图片放大
-#imgBackground {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #d2d2d2;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#imgBackground img {
-  max-width: 90%;
-  max-height: 90%;
-  z-index: 999;
-  border-radius: 5px;
-  transition: all 0.6s;
-}
-#imgBackground img:hover{
-  max-width: 100%;
-  max-height: 100%;
-}
-
-// toc下的按钮
-.privateBadge a {
-  display: table;
+.nav-pills .nav-item .nav-link.active {
+//   box-shadow: 0 0 0 0 !important;
 }
 
 .card {
-  box-shadow: 0 0px 0px 0 rgba(0,0,0,0.14), 0 1px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12) !important;
+  box-shadow: 0 0rem 0rem 0 rgba(0,0,0,0.14), 0 .0625rem .0625rem -0.125rem rgba(0,0,0,0.2), 0 .0625rem .3125rem 0 rgba(0,0,0,0.12) ;
 }
+
+

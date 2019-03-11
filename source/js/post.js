@@ -1,12 +1,13 @@
 $(document).ready(function(){
     var minWidth = 768;
     var toc = $("#toc");
-    var tocL = toc.offset().left;
-    var tocT = $(".navbar").height() + $(".far").height();
+    var post_content = $(".post_content");
+    var tocT = $(".navbar").height();
     var tocLimMin = $(".main").offset().top;
-    $(window).scroll(function(){
+    const placeToc = ()=>{
+        var tocL = post_content.offset().left + post_content.width() + 30;
         var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-        var tocLimMax = $("#comments").offset().top - toc.height() - 100;
+        var tocLimMax = $("#comments").offset().top - toc.height();
         if(window.innerWidth > minWidth && tocLimMin <= scroH && scroH <= tocLimMax){  
             toc.css({
                 "display": "block",
@@ -15,28 +16,27 @@ $(document).ready(function(){
                 "top": tocT
             })
         }else if (window.innerWidth <= minWidth){
-            $(".section").append($(".privateBadge"))
-            $(".privateBadge a").css("display","list-item")
-        }else {  
+            toc.css("display","none")
+            $(".section").append($(".privateWidget"))
+            $(".privateWidget a").css("display","list-item")
+        }else {
             toc.css("display","none")
         }
-    }) 
-    $(window).resize(function(){
-        if(window.innerWidth <= minWidth){
-            toc.css("display","none")
-        }
-    })
+    }
+    $(window).scroll(placeToc) 
+    $(window).resize(placeToc)
+
 
     $(".post_content img").on("click", function(e){
         $("body").append(
-            "<div id='imgBackground'>"
+            "<div id='fullImgBackground'>"
                 +`<img src='${e.target.src}'>`
             +"</div>"
         );
-        $("#imgBackground").one("click", function(e){
-            $("#imgBackground").remove();
+        $("#fullImgBackground").one("click", function(e){
+            $("#fullImgBackground").remove();
         });
-        $("#imgBackground img").one("click", function(e){
+        $("#fullImgBackground img").one("click", function(e){
             e.stopPropagation();
         });
     });

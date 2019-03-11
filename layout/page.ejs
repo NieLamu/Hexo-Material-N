@@ -3,19 +3,19 @@
       <div class="col-md-6 ml-auto mr-auto">
         <div class="profile">
           <div class="avatar">
-            <img src="<%- url_for(theme.about.avatar) %>" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+            <img src="<%- url_for(config.avatar.url) %>" alt="Circle Image" class="img-raised rounded-circle img-fluid" rel="tooltip" title="" data-placement="right" data-original-title="<%= config.avatar.desc %>">
           </div>
           <div class="name">
             <h2 class="title"><%= theme.about.name %></h2>
             <h5><%= theme.about.job %></h5>
             <% if(theme.about.icons) { %>
               <% for(var i in theme.about.icons) { %>
-                <a href="<%- theme.about.icons[i] %>" class="btn btn-just-icon btn-link"><i class="fab fa-lg fa-<%- i %>"></i></a>
+                <a href="<%- theme.about.icons[i] %>" class="btn btn-just-icon btn-link"><ion-icon name="logo-<%= i %>"></ion-icon></i></a>
               <% } %>
             <% } else { %>
               <% for(var j in theme.navbar.icons.list) { %>
-                <a class="btn btn-just-icon btn-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.navbar.icons.list[j].url %>" target="_blank" data-original-title="<%= theme.navbar.icons.list[j].tips %>">
-                  <i class="fab fa-lg fa-<%- j %>"></i>
+                <a class="btn btn-just-icon btn-link" rel="tooltip" title="" data-placement="bottom" data-original-title="<%= theme.navbar.icons.list[j].tips || j.toUpperCase()  %>" href="<%- theme.navbar.icons.list[j].url %>" target="_blank">
+                  <ion-icon name="logo-<%= j %>" size="large"></ion-icon>
                 </a>
               <% } %>
             <% } %>

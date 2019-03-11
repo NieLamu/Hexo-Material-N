@@ -2,8 +2,8 @@
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="<%- url_for() %>">
-                <i class="fas fa-user-secret"></i>
-                 <!-- <%= config.title %> -->
+                <ion-icon name="ios-infinite"></ion-icon>
+                <!-- <%= config.title %> -->
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle navigation</span>
@@ -26,8 +26,8 @@
                     <% if(theme.navbar.icons.enable) { %>
                         <% for(var j in theme.navbar.icons.list) { %>
                             <li class="nav-item">
-                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="<%- theme.navbar.icons.list[j].url %>" target="_blank" data-original-title="<%= theme.navbar.icons.list[j].tips %>">
-                                    <i class="fab fa-<%= j %> fa-lg"></i>
+                                <a class="nav-link" rel="tooltip" title="" data-placement="bottom" data-original-title="<%= theme.navbar.icons.list[j].tips || j.toUpperCase() %>" href="<%- theme.navbar.icons.list[j].url %>" target="_blank">
+                                    <ion-icon name="logo-<%= j %>"></ion-icon>
                                 </a>
                             </li>
                         <% } %>

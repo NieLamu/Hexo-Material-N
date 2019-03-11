@@ -1,15 +1,13 @@
 <div class="row">
     <div class="col-md-10 offset-md-1">
         <% page.posts.each(function (post) { %>
-        <div class="row post-card">
-            <% var col_num = "col-md-11" %>
-            <% if(post.index_img != null) { %>
-                <% col_num = "col-md-7" %>
-                <div class="col-md-4">
-                    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.index_img %>)" class="post-index-img" target="<%- theme.index.post_url_target %>"></a> 
+        <div class="row index-card">
+            <% if(post.banner_img != null) { %>
+                <div class="post_index_image_container">
+                    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.banner_img %>)" class="index-post-img" target="<%- theme.index.post_url_target %>"></a> 
                 </div>
             <% } %>
-                <div class="<%- col_num %>">
+                <div>
                     <a href="<%- url_for(post.path) %>" class="h3 title" target="<%- theme.index.post_url_target %>"><%= post.title %></a>
                     <% if(post.excerpt.length > 0) { %>
                     <p><%- strip_html(post.excerpt) %>...</p>
@@ -18,14 +16,13 @@
                     <% } %>
                     <% if(theme.index.post_info.enable){ %>
                     <p class="h5">
-                        <i class="far fa-calendar"></i>&nbsp;<a href="/archives"><%- date(post.date,"YYYY-MM-DD") %></a>&nbsp;
+                        <a href="/archives"><%- date(post.date,"YYYY-MM-DD") %></a>&nbsp;
                         <% if(post.tags.length) { %>
-                            <i class="far fa-bookmark"></i>&nbsp;
                                 <% post.tags.each(function(tag){ %>
                                     <a href="/archives/#<%- tag.name %>"><%= tag.name %></a>&nbsp;
                                 <% }) %>
                         <% } %>
-                        <i class="fas fa-pen-fancy"></i></i>&nbsp;<%- page.author %>
+                        <%- page.author %>
                     </p>
                     <% } %>
                 </div>

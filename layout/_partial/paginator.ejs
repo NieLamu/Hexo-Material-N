@@ -1,13 +1,13 @@
 <% if (page.total > 1){ %>
     <div class="text-center">
         <% if(page.prev != 0) { %>
-            <a class="btn btn-primary btn-just-icon btn-round" href="<%- url_for(page.prev_link) %>">
-                <i class="fas fa-chevron-left"></i>
+            <a class="btn btn-round" href="<%- url_for(page.prev_link) %>">
+                <ion-icon name="ios-arrow-back" size="large"></ion-icon>
             </a>
         <% } %>
         <% if(page.next != 0) { %>
-            <a class="btn btn-primary btn-just-icon btn-round" href="<%- url_for(page.next_link) %>">
-                <i class="fas fa-chevron-right"></i>
+            <a class="btn btn-round" href="<%- url_for(page.next_link) %>">
+                <ion-icon name="ios-arrow-forward" size="large"></ion-icon>
             </a>
         <% } %>
     </div>
