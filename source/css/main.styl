@@ -5,7 +5,23 @@
  */
 
 :root{
-  --GrColor: #56c2a4;
+//   --bgColor: #56c2a4;
+  --bgColor: #51c4d3; // 瀑布蓝
+  --hvColor: #1a94bc; // 钴蓝
+}
+
+// 选中背景色
+::selection {
+    background: var(--bgColor); 
+    color: white;
+}
+::-moz-selection {
+    background: var(--bgColor); 
+    color: white;
+}
+::-webkit-selection {
+    background: var(--bgColor); 
+    color: white;
 }
 
 .navbar {
@@ -13,11 +29,15 @@
 	background-color: transparent !important;
 	box-shadow: 0 0 0 0 ;
 }
+.navbar {
+    transition: all .5s ease 0s;
+}
 .navbar:not(.navbar-transparent){
-    color: white;
+    color: var(--bgColor);
 }
 .navbar:hover:not(.navbar-transparent) {
-    background-color: var(--GrColor) !important;
+    background-color: var(--bgColor) !important;
+    color: white;
 }
 .navbar a {
     font-size: 1.3em !important;
@@ -63,12 +83,12 @@
 
 /* 链接 */
 a {
-    color: var(--GrColor);
+    color: var(--bgColor);
     border-radius: .1875rem;
 }
 a:hover:not(.navbar-brand),
 a:focus:not(.navbar-brand) {
-    color: #00bcd4;
+    color: var(--hvColor);
     text-decoration: none;
 }
 
@@ -76,8 +96,13 @@ ion-icon {
     vertical-align: middle;
 }
 
+.btn {
+	box-shadow: 0 0 0 0 ;
+}
 .btn:focus, .btn:active, .btn:hover, .btn.btn-default:focus, .btn.btn-default:active, .btn.btn-default:hover{
 	box-shadow: 0 0 0 0 ;
+    background-color: var(--bgColor);
+    color: white !important;
 }
 
 /////////////////////////////////////////// index
@@ -91,7 +116,7 @@ ion-icon {
     border-radius: .375rem;
 }
 .index-card:hover {
-	box-shadow: 0rem 0rem 10rem var(--GrColor);
+	box-shadow: 0rem 0rem 10rem var(--bgColor);
 	transition: 0.3s;
 }
 
@@ -116,7 +141,7 @@ ion-icon {
 
 /* archive categories */
 .nav-pills.nav-pills-rose .nav-item .nav-link.active, .nav-pills.nav-pills-rose .nav-item .nav-link.active:focus, .nav-pills.nav-pills-rose .nav-item .nav-link.active:hover {
-    background-color: var(--GrColor);
+    background-color: var(--bgColor);
 }
 .nav-pills .nav-item .nav-link {
   font-size: 1rem;
@@ -126,7 +151,7 @@ ion-icon {
 }
 
 .card {
-  box-shadow: 0 0rem 0rem 0 rgba(0,0,0,0.14), 0 .0625rem .0625rem -0.125rem rgba(0,0,0,0.2), 0 .0625rem .3125rem 0 rgba(0,0,0,0.12) ;
+  box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
 }
 
 

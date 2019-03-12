@@ -17,8 +17,6 @@ $(document).ready(function(){
             })
         }else if (window.innerWidth <= minWidth){
             toc.css("display","none")
-            $(".section").append($(".privateWidget"))
-            $(".privateWidget a").css("display","list-item")
         }else {
             toc.css("display","none")
         }
@@ -33,8 +31,13 @@ $(document).ready(function(){
                 +`<img src='${e.target.src}'>`
             +"</div>"
         );
+        $("body").addClass('disableScroll');
+        $(".navbar").addClass('opacity0');
+
         $("#fullImgBackground").one("click", function(e){
             $("#fullImgBackground").remove();
+            $("body").removeClass('disableScroll');
+            $(".navbar").removeClass('opacity0');
         });
         $("#fullImgBackground img").one("click", function(e){
             e.stopPropagation();
