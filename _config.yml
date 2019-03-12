@@ -66,10 +66,10 @@ post:
   layout: 1
   toc: 
     enable: true
-  # Code Highlight Theme available: github | tomorrow | tomorrow-night | tomorrow-night-eighties
+  # Code Highlight Theme available: tomorrow | 
   highlight:
     enable: true
-    theme: tomorrow-night-eighties
+    theme: tomorrow
   comments: 
     enable: true
     type: disqus
