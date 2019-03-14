@@ -103,7 +103,7 @@ archive:
 # About Page
 #---------------------------
 about:
-  banner_img: /img/index.png
+  banner_img: https://source.unsplash.com/user/nielamu/likes/
   # available: 0 - 100
   banner_img_height: 100
   name: NieLamu
