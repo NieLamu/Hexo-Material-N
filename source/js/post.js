@@ -69,7 +69,6 @@ $(document).ready(function(){
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
             let pixels = [[], [], []];
-            console.log(data);
             const len = data.length;
             for (let i = 0, offset, r, g, b, a; i < len/4; i++) {
                 offset = i * 4;
@@ -90,7 +89,6 @@ $(document).ready(function(){
                 pixels[i] = parseInt(eval(pixels[i].join('+'))/pixels[i].length);
             }
             const color = `rgb(${pixels[0]}, ${pixels[1]}, ${pixels[2]})`;
-            console.log(color);
             $('.page-header').css("background-color", color)
 
         }
