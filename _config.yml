@@ -8,8 +8,8 @@
 # 全局
 # Site
 #---------------------------
-favicon: https://github.com/NieLamu/NieLamu.github.io/raw/develop/statics/img/favicon.ico
-apple_touch_icon: https://github.com/NieLamu/NieLamu.github.io/raw/develop/statics/img/favicon.png
+favicon: /img/favicon.ico
+apple_touch_icon: /img/favicon.png
 
 
 #---------------------------
@@ -59,9 +59,6 @@ navbar:
 # Post Page
 #---------------------------
 post: 
-  banner_img: /img/post-banner.jpg
-  # available: 0 - 100
-  banner_img_height: 100
   # available: 1 | 2
   layout: 1
   toc: 

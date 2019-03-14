@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<% if(is_post()) { %>
-<%    banner_img = page.banner_img || theme.post.banner_img || theme.index.banner_img %>
-<%    var banner_img_height = theme.post.banner_img_height %>
-<%    var subtitle = page.title %>
-<% } else if(is_home()) { %>
+<% if(is_home()) { %>
 <%    var banner_img = theme.index.banner_img %>
 <%    var banner_img_height = theme.index.banner_img_height %>
 <%    if(theme.index.subtitle.enable) { var subtitle = config.subtitle } %>
@@ -27,20 +23,25 @@
 
 <body class="<%- body_class %> sidebar-collapse">
 <%- partial('_partial/nav') %>
-  <div class="page-header header-filter" data-parallax="false" style="background-image: url('<%- url_for(banner_img) %>'); height: <%- banner_img_height %>vh;">
     <% if(is_post()) { %>
-      <div class="container">
-        <h1 class="title text-center post_title"><%- page.title %></h1>
-        <p class="text-center"><b><%- full_date(page.date, 'YYYY-MM-DD HH:mm:ss ddd') %></b></p>
-        <p class="text-center"><%- page.author || config.author %></p>
+      <div class="page-header" data-parallax="false" style="background-color: var(--bgColor); height: 100vh;">
+        <div class="page-header-content">
+          <div class="container">
+            <h1 class="title text-center post_title"><%- page.title %></h1>
+            <p class="text-center"><b><%- full_date(page.date, 'YYYY-MM-DD ddd') %> / <%- page.author || config.author %></b></p>
+          </div>
+        </div>
       </div>
     <% } else { %>
-      <div class="container">
-        <h1 class="title text-center"><%- subtitle %></h1>
-        <h2 class="title text-center"><%- config.description %></h2>
+      <div class="page-header" data-parallax="false" style="background-image: url('<%- url_for(banner_img) %>'); height: <%- banner_img_height %>vh;">
+        <div class="container">
+          <% if (!!subtitle) { %>
+            <h1 class="title text-center"><%- subtitle %></h1>
+          <% } %>
+          <h2 class="title text-center"><%- config.description %></h2>
+        </div>
       </div>
     <% } %>
-  </div>
 
   
   <% if(is_post()) { %>

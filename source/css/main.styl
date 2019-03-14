@@ -6,7 +6,7 @@
 
 :root{
 //   --bgColor: #56c2a4;
-  --bgColor: #51c4d3; // 瀑布蓝
+  --bgColor: #00bcd4;
   --hvColor: #1a94bc; // 钴蓝
 }
 
@@ -24,6 +24,18 @@
     color: white;
 }
 
+@media (max-width: 375px){
+    .main-raised {
+        margin-left: .0625rem;
+        margin-right: .0625rem;
+        margin-top: -15vh !important;
+    }
+    .post_title {
+        font-size: 2rem;
+    }
+}
+
+// 导航栏
 .navbar {
 	padding: 0;
 	background-color: transparent !important;
@@ -64,11 +76,21 @@
 .navbar-brand ion-icon {
     font-size: 3.75rem;
 }
+.navbar .navbar-toggler .navbar-toggler-icon {
+    background-color: var(--bgColor);
+}
+
+
 
 
 // 主要布局
+
+.main {
+    z-index: 1;
+}
 .main-raised {
 	box-shadow: 0 0 0 0 ;
+    margin-top: -15vh;
 }
 
 .nav-link {
@@ -76,19 +98,16 @@
     text-transform: capitalize !important;
 }
 
-/* banner image */
-.header-filter::before {
-    background: rgba(0,0,0,0.25) ;
-}
 
 /* 链接 */
 a {
     color: var(--bgColor);
-    border-radius: .1875rem;
+    border-radius: .1875rem !important;
 }
 a:hover:not(.navbar-brand),
 a:focus:not(.navbar-brand) {
-    color: var(--hvColor);
+    background-color: var(--bgColor) !important;
+    color: white;
     text-decoration: none;
 }
 
