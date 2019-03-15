@@ -1,27 +1,30 @@
-$(document).ready(function(){
+$(document).ready(function () {
     var minWidth = 768;
     var toc = $("#toc");
     var post_content = $(".post_content");
-    var tocT = $(".navbar").height();
-    var tocLimMin = $(".main").offset().top;
-    const placeToc = ()=>{
+    var navbar = $(".navbar");
+
+    var tocT = navbar.height();
+
+    var tocLimMin = post_content.offset().top;
+    const placeToc = () => {
         var tocL = post_content.offset().left + post_content.width() + 30;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-        var tocLimMax = $("#comments").offset().top - toc.height();
-        if(window.innerWidth > minWidth && tocLimMin <= scroH && scroH <= tocLimMax){  
+        var scrollH = document.body.scrollTop + document.documentElement.scrollTop;
+        var tocLimMax = tocLimMin + post_content.height();
+        if (window.innerWidth > minWidth && scrollH >= tocLimMin && scrollH + toc.height() <= tocLimMax) {
             toc.css({
                 "display": "block",
                 "position": "fixed",
                 "left": tocL,
                 "top": tocT
             })
-        }else if (window.innerWidth <= minWidth){
-            toc.css("display","none")
-        }else {
-            toc.css("display","none")
+        } else if (window.innerWidth <= minWidth) {
+            toc.css("display", "none")
+        } else {
+            toc.css("display", "none")
         }
     }
-    $(window).scroll(placeToc) 
+    $(window).scroll(placeToc)
     $(window).resize(placeToc)
 
     tocbot.init({
@@ -37,32 +40,32 @@ $(document).ready(function(){
     });
 
 
-    $(".post_content img").on("click", function(e){
+    $(".post_content img").on("click", function (e) {
         $("body").append(
             "<div id='fullImgBackground'>"
-                +`<img src='${e.target.src}'>`
-            +"</div>"
+            + `<img src='${e.target.src}'>`
+            + "</div>"
         );
         $("body").addClass('disableScroll');
         $(".navbar").addClass('opacity0');
 
-        $("#fullImgBackground").one("click", function(e){
+        $("#fullImgBackground").one("click", function (e) {
             $("#fullImgBackground").remove();
             $("body").removeClass('disableScroll');
             $(".navbar").removeClass('opacity0');
         });
-        $("#fullImgBackground img").one("click", function(e){
+        $("#fullImgBackground img").one("click", function (e) {
             e.stopPropagation();
         });
     });
 
-    $(document).ready(()=> {
+    $(document).ready(() => {
         const canvas = $('#post_img_canvas')[0];
         const imgSrc = $(".post_banner_img_container a").attr("href");
         const img = new Image();
         img.crossOrigin = 'Anonymous';
         /**等图片资源加载完成后，才在 Canvas 上进行绘制渲染*/
-        img.onload = ()=> {
+        img.onload = () => {
             canvas.width = img.width;
             canvas.height = img.height;
             const ctx = canvas.getContext('2d');
@@ -70,7 +73,7 @@ $(document).ready(function(){
             const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
             let pixels = [[], [], []];
             const len = data.length;
-            for (let i = 0, offset, r, g, b, a; i < len/4; i++) {
+            for (let i = 0, offset, r, g, b, a; i < len / 4; i++) {
                 offset = i * 4;
                 r = data[offset + 0];
                 g = data[offset + 1];
@@ -86,7 +89,7 @@ $(document).ready(function(){
                 }
             }
             for (let i = 0; i < 3; i++) {
-                pixels[i] = parseInt(eval(pixels[i].join('+'))/pixels[i].length);
+                pixels[i] = parseInt(eval(pixels[i].join('+')) / pixels[i].length);
             }
             const color = `rgb(${pixels[0]}, ${pixels[1]}, ${pixels[2]})`;
             $('.page-header').css("background-color", color)
@@ -94,7 +97,7 @@ $(document).ready(function(){
         }
         img.src = imgSrc;
 
-    
+
 
     })
 
