@@ -59,14 +59,14 @@ $(document).ready(function () {
         });
     });
 
-    $('h1,h2,h3,h4,h5,h6').on('mouseenter', (e) => {
+    $('.post_content h1,h2,h3,h4,h5,h6').on('mouseenter', (e) => {
         $(`#${e.target.id}`).addClass('titleActive')
     })
-    $('h1,h2,h3,h4,h5,h6').on('mouseleave', (e) => {
+    $('.post_content h1,h2,h3,h4,h5,h6').on('mouseleave', (e) => {
         $(`#${e.target.id}`).removeClass('titleActive')
     })
-    $('h1,h2,h3,h4,h5,h6').click((e) => {
-        $('html,body').animate({ scrollTop: $(`#${e.target.id}`).offset().top }, 500);
+    $('.post_content h1,h2,h3,h4,h5,h6').click((e) => {
+        $('html,body').animate({ scrollTop: $(`#${e.target.id}`).offset().top - $('.navbar').height() }, 500);
     });
 
     $(document).ready(() => {
@@ -80,29 +80,33 @@ $(document).ready(function () {
             canvas.height = img.height;
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-            let pixels = [[], [], []];
-            const len = data.length;
-            for (let i = 0, offset, r, g, b, a; i < len / 4; i++) {
-                offset = i * 4;
-                r = data[offset + 0];
-                g = data[offset + 1];
-                b = data[offset + 2];
-                a = data[offset + 3];
-                // If pixel is mostly opaque and not white
-                if (a >= 125) {
-                    if (!(r > 250 && g > 250 && b > 250)) {
-                        pixels[0].push(r);
-                        pixels[1].push(g);
-                        pixels[2].push(b);
+            try {
+                const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                let pixels = [[], [], []];
+                const len = data.length;
+                for (let i = 0, offset, r, g, b, a; i < len / 4; i++) {
+                    offset = i * 4;
+                    r = data[offset + 0];
+                    g = data[offset + 1];
+                    b = data[offset + 2];
+                    a = data[offset + 3];
+                    // If pixel is mostly opaque and not white
+                    if (a >= 125) {
+                        if (!(r > 250 && g > 250 && b > 250)) {
+                            pixels[0].push(r);
+                            pixels[1].push(g);
+                            pixels[2].push(b);
+                        }
                     }
                 }
+                for (let i = 0; i < 3; i++) {
+                    pixels[i] = parseInt(eval(pixels[i].join('+')) / pixels[i].length);
+                }
+                const color = `rgb(${pixels[0]}, ${pixels[1]}, ${pixels[2]})`;
+                $('.page-header').css('background-color', color)
             }
-            for (let i = 0; i < 3; i++) {
-                pixels[i] = parseInt(eval(pixels[i].join('+')) / pixels[i].length);
-            }
-            const color = `rgb(${pixels[0]}, ${pixels[1]}, ${pixels[2]})`;
-            $('.page-header').css('background-color', color)
+            catch (err) { }
+
 
         }
         img.src = imgSrc;

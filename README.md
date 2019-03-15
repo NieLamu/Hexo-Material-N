@@ -9,7 +9,7 @@
   <img alt="license" src="https://img.shields.io/github/license/invom/Material-T.svg?style=flat">
 </p>
 
-![screenshot-index](https://github.com/invom/Material-T/raw/master/screenshot-index.png)
+![screenshot-index](screenshot-index.png)
 
 
 ## 在线预览 Live Preview
