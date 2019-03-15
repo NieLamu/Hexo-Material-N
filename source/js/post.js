@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var minWidth = 768;
-    var toc = $("#toc");
-    var post_content = $(".post_content");
-    var navbar = $(".navbar");
+    var toc = $('#toc');
+    var post_content = $('.post_content');
+    var navbar = $('.navbar');
 
     var tocT = navbar.height();
 
@@ -13,15 +13,15 @@ $(document).ready(function () {
         var tocLimMax = tocLimMin + post_content.height();
         if (window.innerWidth > minWidth && scrollH >= tocLimMin && scrollH + toc.height() <= tocLimMax) {
             toc.css({
-                "display": "block",
-                "position": "fixed",
-                "left": tocL,
-                "top": tocT
+                'display': 'block',
+                'position': 'fixed',
+                'left': tocL,
+                'top': tocT
             })
         } else if (window.innerWidth <= minWidth) {
-            toc.css("display", "none")
+            toc.css('display', 'none')
         } else {
-            toc.css("display", "none")
+            toc.css('display', 'none')
         }
     }
     $(window).scroll(placeToc)
@@ -40,28 +40,38 @@ $(document).ready(function () {
     });
 
 
-    $(".post_content img").on("click", function (e) {
-        $("body").append(
-            "<div id='fullImgBackground'>"
+    $('.post_content img').on('click', function (e) {
+        $('body').append(
+            `<div id='fullImgBackground'>`
             + `<img src='${e.target.src}'>`
-            + "</div>"
+            + `</div>`
         );
-        $("body").addClass('disableScroll');
-        $(".navbar").addClass('opacity0');
+        $('body').addClass('disableScroll');
+        $('.navbar').addClass('opacity0');
 
-        $("#fullImgBackground").one("click", function (e) {
-            $("#fullImgBackground").remove();
-            $("body").removeClass('disableScroll');
-            $(".navbar").removeClass('opacity0');
+        $('#fullImgBackground').one('click', function (e) {
+            $('#fullImgBackground').remove();
+            $('body').removeClass('disableScroll');
+            $('.navbar').removeClass('opacity0');
         });
-        $("#fullImgBackground img").one("click", function (e) {
+        $('#fullImgBackground img').one('click', function (e) {
             e.stopPropagation();
         });
     });
 
+    $('h1,h2,h3,h4,h5,h6').on('mouseenter', (e) => {
+        $(`#${e.target.id}`).addClass('titleActive')
+    })
+    $('h1,h2,h3,h4,h5,h6').on('mouseleave', (e) => {
+        $(`#${e.target.id}`).removeClass('titleActive')
+    })
+    $('h1,h2,h3,h4,h5,h6').click((e) => {
+        $('html,body').animate({ scrollTop: $(`#${e.target.id}`).offset().top }, 500);
+    });
+
     $(document).ready(() => {
         const canvas = $('#post_img_canvas')[0];
-        const imgSrc = $(".post_banner_img_container a").attr("href");
+        const imgSrc = $('.post_banner_img_container a').attr('href');
         const img = new Image();
         img.crossOrigin = 'Anonymous';
         /**等图片资源加载完成后，才在 Canvas 上进行绘制渲染*/
@@ -92,13 +102,10 @@ $(document).ready(function () {
                 pixels[i] = parseInt(eval(pixels[i].join('+')) / pixels[i].length);
             }
             const color = `rgb(${pixels[0]}, ${pixels[1]}, ${pixels[2]})`;
-            $('.page-header').css("background-color", color)
+            $('.page-header').css('background-color', color)
 
         }
         img.src = imgSrc;
-
-
-
     })
 
 }) 

@@ -53,19 +53,41 @@
     max-width: 100%;
 }
 
-.post_content h1::before,h2::before,h3::before,h4::before,h5::before,h6::before{
-    content: "> ";
-    color: var(--bgColor);
+.post_content h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  content: ">";
+  margin-right: 16px;
+  cursor: pointer;
+/*   pointer-events: auto; */
+  color: var(--bgColor);
 }
-
-.post_content h1,h2,h3,h4,h5,h6{
-    font-weight: 600;
-    padding-top: 1rem;
+.post_content h1.titleActive:before,
+h2.titleActive:before,
+h3.titleActive:before,
+h4.titleActive:before,
+h5.titleActive:before,
+h6.titleActive:before {
+  margin-right: 0px;
+  content: "✈";
+}
+.post_content h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+/*   pointer-events: none; */
+  font-weight: 600;
+  padding-top: 1rem;
 }
 
 /* 图片 */
 .post_content img:hover {
-	box-shadow: 0rem 0rem 1rem var(--bgColor);
+	box-shadow: 0rem 0rem 5rem var(--bgColor);
 }
 .post_content img {
     cursor: pointer;
