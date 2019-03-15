@@ -22,44 +22,48 @@
 <%- partial('_partial/head') %>
 
 <body class="<%- body_class %> sidebar-collapse">
-<%- partial('_partial/nav') %>
-    <% if(is_post()) { %>
-      <div class="page-header" data-parallax="false" style="background-color: var(--bgColor); height: 100vh;">
-        <div class="page-header-content">
-          <div class="container">
-            <h1 class="title text-center post_title"><%- page.title %></h1>
-            <p class="text-center"><b><%- full_date(page.date, 'YYYY-MM-DD ddd') %> / <%- page.author || config.author %></b></p>
-          </div>
-        </div>
+  <%- partial('_partial/nav') %>
+  <% if(is_post()) { %>
+  <div class="page-header" data-parallax="false" style="background-color: var(--bgColor); height: 100vh;">
+    <div class="page-header-content">
+      <div class="container">
+        <h1 class="title text-center post_title"><%- page.title %></h1>
+        <p class="text-center">Created: <b><%- full_date(page.date, 'YYYY-MM-DD') %></b> /
+          Updated: <b><%- full_date(page.updated, 'YYYY-MM-DD') %></b> /
+          Author: <b><%- page.author || config.author %></b></p>
       </div>
-    <% } else { %>
-      <div class="page-header" data-parallax="false" style="background-image: url('<%- url_for(banner_img) %>'); height: <%- banner_img_height %>vh;">
-        <div class="container">
-          <% if (!!subtitle) { %>
-            <h1 class="title text-center"><%- subtitle %></h1>
-          <% } %>
-          <h2 class="title text-center"><%- config.description %></h2>
-        </div>
-      </div>
-    <% } %>
+    </div>
+  </div>
+  <% } else { %>
+  <div class="page-header" data-parallax="false"
+    style="background-image: url('<%- url_for(banner_img) %>'); height: <%- banner_img_height %>vh;">
+    <div class="container">
+      <% if (!!subtitle) { %>
+      <h1 class="title text-center"><%- subtitle %></h1>
+      <% } %>
+      <h2 class="title text-center"><%- config.description %></h2>
+    </div>
+  </div>
+  <% } %>
 
-  
+
   <% if(is_post()) { %>
   <%- body %>
   <% } else { %>
-    <div class="main main-raised">
-      <div class="container">
+  <div class="main main-raised">
+    <div class="container">
       <% if(page.type == "about") { %>
-          <%- body %>
+      <%- body %>
       <% } else { %>
-          <div class="section">
-            <%- body %>
-          </div>
-      <% } %>
+      <div class="section">
+        <%- body %>
       </div>
+      <% } %>
     </div>
+  </div>
   <% } %>
 
-<%- partial('_partial/footer') %>
+  <%- partial('_partial/footer') %>
 </body>
+
 </html>
