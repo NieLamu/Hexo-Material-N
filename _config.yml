@@ -63,12 +63,12 @@ post:
   layout: 1
   toc: 
     enable: true
-  # Code Highlight Theme available: tomorrow | 
+  # Code Highlight Theme available: tomorrow  
   highlight:
     enable: true
     theme: tomorrow
   comments: 
-    enable: true
+    enable: false
     type: disqus
 
 disqus:
