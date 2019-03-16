@@ -17,15 +17,6 @@
           <div class="post_content">
             <%- page.content %>
           </div>
-          <br><br>
-          <div>
-            <p>
-              <% page.tags.each(function(tag) { %>     
-                <a class="badge badge-default" href="/archives/#<%- tag.name %>">#&nbsp;<%- tag.name %></a>
-                &nbsp;
-              <% }) %>    
-            </p>
-          </div>
           <%- theme.issue %>
         </div>
         <!-- TOC -->

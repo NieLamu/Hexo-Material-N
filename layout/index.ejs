@@ -10,17 +10,23 @@
                 <div>
                     <a href="<%- url_for(post.path) %>" class="h3 title" target="<%- theme.index.post_url_target %>"><%= post.title %></a>
                     <% if(post.excerpt.length > 0) { %>
-                    <p><%- strip_html(post.excerpt) %>...</p>
+                        <h4><%- strip_html(post.excerpt) %>...</h4>
                     <% } else if(theme.index.auto_excerpt.enable){ %>
-                    <p><%- strip_html(post.content).substring(0,theme.index.auto_excerpt.length) %>...</p>
+                        <h4><%- strip_html(post.content).substring(0, theme.index.auto_excerpt.length) %>...</h4>
                     <% } %>
                     <% if(theme.index.post_info.enable){ %>
                     <p class="h5">
-                        <a href="/archives"><%- date(post.date,"YYYY-MM-DD") %></a>&nbsp;
+                        <a href="/archives"><%- date(post.date,"YYYY-MM-DD") %></a> |
                         <% if(post.tags.length) { %>
-                                <% post.tags.each(function(tag){ %>
-                                    <a href="/archives/#<%- tag.name %>"><%= tag.name %></a>&nbsp;
-                                <% }) %>
+                            <% post.tags.each(function(tag){ %>
+                                <a href="/archives/#<%- tag.name %>">#<%= tag.name %></a>
+                            <% }) %>
+                        <% } %>
+                        |
+                        <% if(post.categories.length) { %>
+                            <% post.categories.each(function(category){ %>
+                                <a href="/categories/<%- category.name %>">><%= category.name %></a>
+                            <% }) %>
                         <% } %>
                         <%- page.author %>
                     </p>

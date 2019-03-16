@@ -28,9 +28,19 @@
     <div class="page-header-content">
       <div class="container">
         <h1 class="title text-center post_title"><%- page.title %></h1>
-        <p class="text-center">Created: <b><%- full_date(page.date, 'YYYY-MM-DD') %></b> /
-          Updated: <b><%- full_date(page.updated, 'YYYY-MM-DD') %></b> /
-          Author: <b><%- page.author || config.author %></b></p>
+        <p class="text-center">
+          Created: <b><%- full_date(page.date, 'YYYY-MM-DD') %></b> |
+          Updated: <b><%- full_date(page.updated, 'YYYY-MM-DD') %></b> |
+          Author: <b><%- page.author || config.author %></b>
+        </p>
+        <p class="text-center">
+          <% page.tags.each(function(tag) { %>
+            <a class="badge" href="/tags/<%- tag.name %>">#<%- tag.name %></a>
+          <% }) %>
+          <% page.categories.each(function(category) { %>
+            <a class="badge" href="/categories/<%- category.name %>">><%- category.name %></a>
+          <% }) %>
+        </p>
       </div>
     </div>
   </div>

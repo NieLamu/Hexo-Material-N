@@ -12,27 +12,27 @@
                     <div class="tab-pane active" id="all">
                         <p class="h3">Total: <%= site.posts.length %></p>
                         <hr>
-                        <% page.posts.each(function (post) { %>
-                            <div class="row">
-                                <div class="col-md-11">
-                                    <p class="h4"><%- date(post.date,"YYYY-MM-DD") %>&nbsp;&nbsp;<a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a></p>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <% page.posts.each(function (post) { %>
+                                    <p><%- date(post.date,"YYYY-MM-DD") %>&nbsp;&nbsp;<a href="<%- url_for(post.path) %>" class="h4 title"><%= post.title %></a></p>
+                                <% }) %> 
                             </div>
-                        <% }) %> 
+                        </div>
                     </div>
                     <% site.tags.each(function(tag) { %>
                         <div class="tab-pane" id="<%- tag.name %>">
-                            <% page.posts.each(function(post) { %>                                
-                                <% post.tags.each(function(item) { %>
-                                <%      if(item.name == tag.name) { %>
-                                    <div class="row">
-                                        <div class="col-md-11">
-                                            <p class="h4"><%- date(post.date,"YYYY-MM-DD") %>&nbsp;&nbsp;<a href="<%- url_for(post.path) %>" class="h3 title"><%= post.title %></a></p>
-                                        </div>
-                                    </div>
-                                <%      } %>
-                                <% }) %>
-                            <% }) %> 
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <% page.posts.each(function(post) { %>                                
+                                        <% post.tags.each(function(item) { %>
+                                            <% if(item.name == tag.name) { %>
+                                                <p><%- date(post.date,"YYYY-MM-DD") %>&nbsp;&nbsp;<a href="<%- url_for(post.path) %>" class="h4 title"><%= post.title %></a></p>
+                                            <% } %>
+                                        <% }) %>
+                                    <% }) %> 
+                                </div>
+                            </div>
                         </div>
                     <% }) %>
                 </div>

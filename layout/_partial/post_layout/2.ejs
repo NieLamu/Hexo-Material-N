@@ -15,10 +15,12 @@
         <br><br>
         <div>
           <p>
-            <% page.tags.each(function(tag) { %>     
-              <a class="badge badge-default" href="/archives/#<%- tag.name %>">#&nbsp;<%- tag.name %></a>
-              &nbsp;
-            <% }) %>    
+            <% page.tags.each(function(tag) { %>
+              <a class="badge badge-default" href="/tags/<%- tag.name %>">#<%- tag.name %></a>
+            <% }) %>
+            <% page.categories.each(function(category) { %>
+              <a class="badge badge-default" href="/categories/<%- category.name %>">><%- category.name %></a>
+            <% }) %>
           </p>
         </div>
         <%- theme.issue %>

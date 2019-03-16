@@ -17,6 +17,10 @@
     width: 100%;
 }
 
+.page-header .badge {
+    font-size: .875rem;
+    text-transform: capitalize;
+}
 
 .post_banner_img_container {
     width: 100%;
@@ -36,7 +40,10 @@
     padding-top: 55%;
     display: block;
     border-radius: 1rem !important;
-    box-shadow: 0 0 1rem var(--bgColor);
+}
+
+.post_banner_img:hover {
+	box-shadow: 0rem 0rem 3rem var(--bgColor);
 }
 
 .post_content {
@@ -49,9 +56,16 @@
     font-weight: 400;
 }
 
-.post_content img{
+.post_content img {
+    cursor: pointer;
+    transition: .3s
+    border-radius: .375rem;
     max-width: 100%;
 }
+.post_content img:hover {
+	box-shadow: 0rem 0rem 3rem var(--bgColor);
+}
+
 
 .post_content h1:before,
 h2:before,
@@ -83,16 +97,6 @@ h6 {
 /*   pointer-events: none; */
   font-weight: 600;
   padding-top: 1rem;
-}
-
-/* 图片 */
-.post_content img:hover {
-	box-shadow: 0rem 0rem 3rem var(--bgColor);
-}
-.post_content img {
-    cursor: pointer;
-    transition: .3s
-    border-radius: .375rem;
 }
 
 
@@ -173,15 +177,6 @@ h6 {
 }
 .opacity0 {
     opacity: 0;
-}
-
-
-.badge {
-    text-transform: capitalize;
-}
-.badge-default[href]:hover {
-    background-color: var(--bgColor);
-    color: white;
 }
 
 
