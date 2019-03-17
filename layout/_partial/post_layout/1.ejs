@@ -10,14 +10,13 @@
         <a style="background-image: url('<%- url_for(banner_img) %>');" href="<%- url_for(banner_img) %>" target="_blank" class="post_banner_img"></a> 
       </div>
     <% }else {%>
-      <div class="section">
+    <div class="section">
     <% } %>
       <div class="row">
         <div class="col-md-8 offset-md-<%- offset_col_num %>">
           <div class="post_content">
             <%- page.content %>
           </div>
-          <%- theme.issue %>
         </div>
         <!-- TOC -->
         <%- partial('../toc') %>
