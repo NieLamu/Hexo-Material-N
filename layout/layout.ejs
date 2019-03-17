@@ -12,7 +12,7 @@
 <% } else if(is_archive) { %>
 <%    var banner_img = theme.archive.banner_img || theme.index.banner_img %>
 <%    var banner_img_height = theme.archive.banner_img_height %>
-<%    var subtitle = 'Archive' %>
+<%    var subtitle = 'Archives' %>
 <% } else { %>
 <%    var subtitle = page.title %>
 <%    var banner_img = theme.index.banner_img %>
@@ -51,7 +51,7 @@
       <% if (!!subtitle) { %>
       <h1 class="title text-center"><%- subtitle %></h1>
       <% } %>
-      <h2 class="title text-center"><%- config.description %></h2>
+      <h2 class="title text-center type-description" style="display: none;"><%- config.description %></h2>
     </div>
   </div>
   <% } %>
