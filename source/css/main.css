@@ -7,12 +7,8 @@ body, h1, h2, h3, h4, h5, h6, .title {
     font-family: CamingoCode-Regular;
 }
 
-:root{
-//   --bgColor: #56c2a4;
-  --bgColor: #00bcd4;
-}
 
-// 选中背景色
+/* 选中背景色 */
 ::selection {
     background: var(--bgColor); 
     color: white;
@@ -37,7 +33,7 @@ body, h1, h2, h3, h4, h5, h6, .title {
     }
 }
 
-// 导航栏
+/* 导航栏 */
 .navbar {
 	padding: 0;
 	background-color: transparent !important;
@@ -85,7 +81,7 @@ body, h1, h2, h3, h4, h5, h6, .title {
 
 
 
-// 主要布局
+/* 主要布局 */
 
 .main {
     z-index: 1;
@@ -133,7 +129,7 @@ ion-icon {
     content: "|";
 }
  
-/////////////////////////////////////////// index
+/* /////////////////////////////////////////// index */
 
 .index-card{
     margin-top: 2rem;
@@ -144,7 +140,7 @@ ion-icon {
     border-radius: .375rem;
 }
 .index-card:hover {
-	box-shadow: 0rem 0rem 3rem var(--bgColor);
+	box-shadow: 0rem 0rem 2rem var(--bgColor);
 	transition: 0.3s;
 }
 
@@ -165,7 +161,7 @@ ion-icon {
 
 
 
-//////////////////////////////////// archive
+/* //////////////////////////////////// archive */
 
 /* archive categories */
 .nav-pills.nav-pills-rose .nav-item .nav-link.active, .nav-pills.nav-pills-rose .nav-item .nav-link.active:focus, .nav-pills.nav-pills-rose .nav-item .nav-link.active:hover {
@@ -173,9 +169,6 @@ ion-icon {
 }
 .nav-pills .nav-item .nav-link {
   font-size: 1rem;
-}
-.nav-pills .nav-item .nav-link.active {
-//   box-shadow: 0 0 0 0 !important;
 }
 
 .card {

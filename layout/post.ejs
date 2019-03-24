@@ -1,9 +1,30 @@
-<% if(theme.post.layout == '1') { %>
-    <%- partial('_partial/post_layout/1') %>
-<% } else { %>
-    <%- partial('_partial/post_layout/2') %>
-<% } %>
-
+<% if(theme.post.toc.enable){ %>
+<%     var offset_col_num = 1 %>
+<% }else { var offset_col_num = 2 } %>
+<% banner_img = page.banner_img %>
+<div class="main main-raised">
+    <div class="container">
+        <% if (!!banner_img) {%>
+        <div class="section post_img_section">
+            <div class="post_banner_img_container">
+                <a style="background-image: url('<%- url_for(banner_img) %>');" href="<%- url_for(banner_img) %>"
+                    target="_blank" class="post_banner_img"></a>
+            </div>
+        <% }else {%>
+        <div class="section">
+        <% } %>
+            <div class="row">
+                <div class="col-md-8 offset-md-<%- offset_col_num %>">
+                    <div class="post_content">
+                        <%- page.content %>
+                    </div>
+                </div>
+                <!-- TOC -->
+                <%- partial('_partial/toc') %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
 <!-- Comments -->

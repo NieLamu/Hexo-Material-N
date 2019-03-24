@@ -16,14 +16,15 @@
                     <% } %>
                     <% if(theme.index.post_info.enable){ %>
                     <p class="h5">
-                        <a href="/archives"><%- date(post.date,"YYYY-MM-DD") %></a> |
+                        <a href="/archives"><%- date(post.date,"YYYY-MM-DD") %></a>
                         <% if(post.tags.length) { %>
+                            |
                             <% post.tags.each(function(tag){ %>
                                 <a href="/archives/#<%- tag.name %>">#<%= tag.name %></a>
                             <% }) %>
                         <% } %>
-                        |
                         <% if(post.categories.length) { %>
+                            |
                             <% post.categories.each(function(category){ %>
                                 <a href="/categories/<%- category.name %>">><%= category.name %></a>
                             <% }) %>

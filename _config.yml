@@ -11,6 +11,8 @@
 favicon: /img/favicon.ico
 apple_touch_icon: /img/favicon.png
 
+main_color: '#00bcd4'
+
 
 #---------------------------
 # 首页
@@ -18,8 +20,6 @@ apple_touch_icon: /img/favicon.png
 #---------------------------
 index: 
   banner_img: /img/index.png
-  # available: 0 - 100
-  banner_img_height: 100
   subtitle:
     enable: true
   auto_excerpt:
@@ -59,14 +59,8 @@ navbar:
 # Post Page
 #---------------------------
 post: 
-  # available: 1 | 2
-  layout: 1
   toc: 
     enable: true
-  # Code Highlight Theme available: tomorrow  
-  highlight:
-    enable: true
-    theme: tomorrow
   comments: 
     enable: false
     type: disqus
@@ -83,7 +77,7 @@ valine:
   appkey:  # your leancloud application appkey
   notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
   verify: false # Verification code
-  placeholder: 说点什么 # comment box placeholder
+  placeholder: Say something # comment box placeholder
   avatar: retro # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
   visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
@@ -95,8 +89,6 @@ valine:
 #---------------------------
 archive: 
   banner_img: /img/index.png
-  # available: 0 - 100
-  banner_img_height: 100
 
 #---------------------------
 # 关于页
@@ -104,13 +96,15 @@ archive:
 #---------------------------
 about:
   banner_img: https://source.unsplash.com/user/nielamu/likes/
-  # available: 0 - 100
-  banner_img_height: 100
+  avatar:
+    url: /img/avatar.jpg
+    desc: NOT ME
   name: NieLamu
   job: A coder
   introduce: 
   extension: <b>はじめまして ^_^</b>
   icons:
+    enable: true
     
 
 
@@ -118,5 +112,4 @@ about:
 # 底部信息
 # Footer
 #---------------------------
-issue: <a href="https://github.com/NieLamu/NieLamu.github.io/issues" class="btn" target="_blank">Report an issue</a>
-footer: 
+footer: <a href="https://github.com/NieLamu/NieLamu.github.io/issues" class="btn" target="_blank">Report an issue</a>

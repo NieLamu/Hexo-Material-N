@@ -1,18 +1,15 @@
 <footer class="footer footer-default">
-  <div class="container">
-    <div class="float-left" style="padding: 15px 0;">
-        <%- theme.footer %>
+    <div class="container">
+        <div class="copyright float-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            <a href="https://github.com/NieLamu" target="_blank">NieLamu</a> X
+            <a href="https://hexo.io/zh-cn/" target="_blank">HEXO</a>
+            <%- theme.footer %>
+        </div>
     </div>
-    <div class="copyright float-right">
-      &copy;
-      <script>
-        document.write(new Date().getFullYear())
-      </script>
-      <a href="https://github.com/NieLamu" target="_blank">NieLamu</a> X 
-      <a href="https://hexo.io/zh-cn/" target="_blank">HEXO</a>
-      <%- theme.issue %>
-    </div>
-  </div>
 </footer>
 
 
@@ -24,33 +21,37 @@
 <script src="/js/main.js" type="text/javascript"></script>
 <link href="/css/main.css" rel="stylesheet" />
 
+<script type="text/javascript">
+    $(':root').css('--bgColor', '<%= theme.main_color %>')
+</script>
+
 <% if(is_post()) { %>
-  <script src="/js/plugins/tocbot.min.js" type="text/javascript"></script>
-  <%- js("/js/post.js") %>
-  <%- css('/css/post.css') %>
+<script src="/js/plugins/tocbot.min.js" type="text/javascript"></script>
+<script src="/js/post.js" type="text/javascript"></script>
+<link href="/css/post.css" rel="stylesheet" />
 <% } else if (is_archive()){ %>
-  <script>
+<script>
     $(document).ready(function () {
-      const hash = window.location.hash;
-      const pathname = window.location.pathname;
-      if (pathname.includes('archives') && hash){
-          $('.card-body .tab-pane').each(function(){
-              let ele = $(this);
-              if ('#' + ele.attr('id') === hash){
-                  ele.addClass('active show');
-              }else{
-                  ele.removeClass('active show');
-              }
-          });
-          $('.card-body .nav-link').each(function(){
-              let ele = $(this);
-              if (ele.attr('href') === hash){
-                  ele.addClass('active show');
-              }else{
-                  ele.removeClass('active show');
-              }
-          });
-      }
+        const hash = window.location.hash;
+        const pathname = window.location.pathname;
+        if (pathname.includes('archives') && hash) {
+            $('.card-body .tab-pane').each(function () {
+                let ele = $(this);
+                if ('#' + ele.attr('id') === hash) {
+                    ele.addClass('active show');
+                } else {
+                    ele.removeClass('active show');
+                }
+            });
+            $('.card-body .nav-link').each(function () {
+                let ele = $(this);
+                if (ele.attr('href') === hash) {
+                    ele.addClass('active show');
+                } else {
+                    ele.removeClass('active show');
+                }
+            });
+        }
     })
-  </script>
+</script>
 <% } %>
