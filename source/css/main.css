@@ -41,13 +41,17 @@ body, h1, h2, h3, h4, h5, h6, .title {
 }
 .navbar {
     transition: all .5s ease 0s;
-}
-.navbar:not(.navbar-transparent){
     color: var(--bgColor);
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+    background-color: var(--bgColor);
 }
 .navbar:hover:not(.navbar-transparent) {
     background-color: var(--bgColor) !important;
     color: white;
+}
+.navbar:hover .navbar-toggler .navbar-toggler-icon {
+    background-color: white;
 }
 .navbar a {
     font-size: 1rem !important;
@@ -73,9 +77,6 @@ body, h1, h2, h3, h4, h5, h6, .title {
 }
 .navbar-brand ion-icon {
     font-size: 3.75rem;
-}
-.navbar .navbar-toggler .navbar-toggler-icon {
-    background-color: var(--bgColor);
 }
 
 
