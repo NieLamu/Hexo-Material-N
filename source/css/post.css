@@ -179,6 +179,7 @@ h6:hover:before {
     border-radius: .3125rem;
     transition: all 0.6s;
     cursor: zoom-out;
+    transform: scale(1.0);
 }
 .disableScroll {
     overflow: hidden; 
