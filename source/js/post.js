@@ -66,28 +66,25 @@ $(document).ready(()=> {
         const fullImgBackground_img = $('#fullImgBackground img');
         // fullImgBackground.onselectstart = function () { return false; };
         fullImgBackground.on('click', function (e) {
-            console.log('ba', bgClicked.num)
             if (!!bgClicked.timer) {
                 clearTimeout(bgClicked.timer);
                 bgClicked.timer = null;
             }
             bgClicked.num ++;
-            bgClicked.timer = setTimeout(() => {
-                bgClicked.num = 0;
-            }, 1000)
             if (bgClicked.num === 2) {
                 bgClicked.num = 0;
-                bgClicked.scale = parseInt(bgClicked.scale*10) === 14? 1:bgClicked.scale+0.2;
+                bgClicked.scale = parseInt(bgClicked.scale * 10) === (1 + 0.5*2)*10? 1:bgClicked.scale+0.5;
                 fullImgBackground_img.css('transform', `scale(${bgClicked.scale})`)
-                console.log('boom!', bgClicked.scale)
+            } else {
+                bgClicked.timer = setTimeout(() => {
+                    fullImgBackground.remove();
+                    body.removeClass('disableScroll');
+                    navbar.removeClass('barHidden');
+                }, 250)
             }
         });
         fullImgBackground_img.one('click', function (e) {
 
-            console.log('im', e)
-            fullImgBackground.remove();
-            body.removeClass('disableScroll');
-            navbar.removeClass('barHidden');
         });
     });
 })
