@@ -4,15 +4,15 @@
         <div class="row index-card">
             <% if(post.banner_img != null) { %>
                 <div class="post_index_image_container">
-                    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.banner_img %>)" class="index-post-img" target="<%- theme.index.post_url_target %>"></a> 
+                    <a href="<%- url_for(post.path) %>" style="background-image: url(<%- post.banner_img %>)" class="index-post-img" target="<%- theme.index.post_url_target %>"></a>
                 </div>
             <% } %>
                 <div>
                     <a href="<%- url_for(post.path) %>" class="h3 title" target="<%- theme.index.post_url_target %>"><%= post.title %></a>
                     <% if(post.excerpt.length > 0) { %>
-                        <h4><%- strip_html(post.excerpt) %>...</h4>
+                        <p><%- strip_html(post.excerpt) %>...</p>
                     <% } else if(theme.index.auto_excerpt.enable){ %>
-                        <h4><%- strip_html(post.content).substring(0, theme.index.auto_excerpt.length) %>...</h4>
+                        <p><%- strip_html(post.content).substring(0, theme.index.auto_excerpt.length) %>...</p>
                     <% } %>
                     <% if(theme.index.post_info.enable){ %>
                     <p class="h5">
@@ -34,8 +34,8 @@
                     <% } %>
                 </div>
         </div>
-       
-        <% }) %> 
+
+        <% }) %>
         <br><br>
         <%- partial('_partial/paginator') %>
     </div>
